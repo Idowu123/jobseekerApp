@@ -4,8 +4,10 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
+	extend = require('mongoose-schema-extend');
 	Schema = mongoose.Schema,
 	crypto = require('crypto');
+
 
 /**
  * A Validation function for local strategy properties
@@ -81,8 +83,33 @@ var UserSchema = new Schema({
 	created: {
 		type: Date,
 		default: Date.now
+	}, { collection : 'users', discriminatorKey : '_type' } // pls check
+});
+
+/**
+ * Employee Schema(pls check)
+ */
+var EmployeeSchema = UserSchema.extend({
+	companyName: {
+		type: String,
+		trim: true,
+		default: '',
+		validate: [validateLocalStrategyProperty, 'Please fill in your company name']
+	},
+	companyAddress: {
+		type: String,
+		trim: true,
+		default: '',
+		validate: [validateLocalStrategyProperty, 'Please fill in your company address']
+	},
+	companyWebsite: {
+		type: String,
+		trim: true,
+		default: '',
+		validate: [validateLocalStrategyProperty, 'Please fill in your company webiste']
 	}
 });
+
 
 /**
  * Hook a pre save method to hash the password
@@ -95,6 +122,12 @@ UserSchema.pre('save', function(next) {
 
 	next();
 });
+
+// pls check
+EmployeeSchema.save(function(err) { 
+  
+})
+
 
 /**
  * Create instance method for hashing a password
@@ -136,4 +169,12 @@ UserSchema.statics.findUniqueUsername = function(username, suffix, callback) {
 	});
 };
 
-mongoose.model('User', UserSchema);
+var User = mongoose.model('User', UserSchema);
+    Employee = mongoose.model('Employee', EmployeeSchema);
+
+// var Brian = new Employee({
+//   name : 'Brian Kirchoff',
+//   department : 'Engineering'
+// });
+
+
