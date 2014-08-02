@@ -6,6 +6,8 @@
 var mongoose = require('mongoose'),
 	passport = require('passport'),
 	User = mongoose.model('User'),
+	Employer = mongoose.model('Employer'),
+	Jobsearcher = mongoose.model('Jobsearcher'),
 	_ = require('lodash');
 
 /**
@@ -40,7 +42,14 @@ exports.signup = function(req, res) {
 	delete req.body.roles;
 
 	// Init Variables
-	var user = new User(req.body);
+	var type = req.body.type;
+	var user;
+	if(type === 'employer'){
+		user = new Employer(req.body);
+	}
+	else{
+		user = new Jobsearcher(req.body);
+	}
 	var message = null;
 
 	// Add missing user fields
@@ -73,10 +82,13 @@ exports.signup = function(req, res) {
  * Signin after passport authentication
  */
 exports.signin = function(req, res, next) {
+	// console.log("sing in");
 	passport.authenticate('local', function(err, user, info) {
 		if (err || !user) {
+			// console.log("sing in failed");
 			res.send(400, info);
 		} else {
+			// console.log("sing in successfule");
 			// Remove sensitive data before login
 			user.password = undefined;
 			user.salt = undefined;

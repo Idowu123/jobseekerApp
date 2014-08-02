@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-	extend = require('mongoose-schema-extend');
+	extend = require('mongoose-schema-extend'),
 	Schema = mongoose.Schema,
 	crypto = require('crypto');
 
@@ -83,13 +83,15 @@ var UserSchema = new Schema({
 	created: {
 		type: Date,
 		default: Date.now
-	}, { collection : 'users', discriminatorKey : '_type' } // pls check
-});
+	}
+},
+	{ collection : 'users', discriminatorKey : '_type' }
+);
 
 /**
- * Employee Schema(pls check)
+ * Employer Schema(pls check)
  */
-var EmployeeSchema = UserSchema.extend({
+var EmployerSchema = UserSchema.extend({
 	companyName: {
 		type: String,
 		trim: true,
@@ -110,6 +112,40 @@ var EmployeeSchema = UserSchema.extend({
 	}
 });
 
+var JobsearcherSchema = UserSchema.extend({
+	address: {
+		type: String,
+		trim: true,
+		default: ''
+	},
+	proffesion: {
+		type: String,
+		trim: true,
+		default: ''
+	},
+	qualification: {
+		type: String,
+		trim: true,
+		default: ''
+	},
+	experience: {
+		type: String,
+		trim: true,
+		default: ''
+	},
+	phoneNumber: {
+		type: Number,
+		trim: true,
+		default: ''
+	},
+	age: {
+		type: Number,
+		trim: true,
+		default: ''
+	}
+});
+
+
 
 /**
  * Hook a pre save method to hash the password
@@ -123,16 +159,27 @@ UserSchema.pre('save', function(next) {
 	next();
 });
 
-// pls check
-EmployeeSchema.save(function(err) { 
-  
-})
 
-
-/**
+/**	
  * Create instance method for hashing a password
  */
 UserSchema.methods.hashPassword = function(password) {
+	if (this.salt && password) {
+		return crypto.pbkdf2Sync(password, this.salt, 10000, 64).toString('base64');
+	} else {
+		return password;
+	}
+};
+
+EmployerSchema.methods.hashPassword = function(password) {
+	if (this.salt && password) {
+		return crypto.pbkdf2Sync(password, this.salt, 10000, 64).toString('base64');
+	} else {
+		return password;
+	}
+};
+
+JobsearcherSchema.methods.hashPassword = function(password) {
 	if (this.salt && password) {
 		return crypto.pbkdf2Sync(password, this.salt, 10000, 64).toString('base64');
 	} else {
@@ -144,6 +191,14 @@ UserSchema.methods.hashPassword = function(password) {
  * Create instance method for authenticating user
  */
 UserSchema.methods.authenticate = function(password) {
+	return this.password === this.hashPassword(password);
+};
+
+EmployerSchema.methods.authenticate = function(password) {
+	return this.password === this.hashPassword(password);
+};
+
+JobsearcherSchema.methods.authenticate = function(password) {
 	return this.password === this.hashPassword(password);
 };
 
@@ -169,12 +224,47 @@ UserSchema.statics.findUniqueUsername = function(username, suffix, callback) {
 	});
 };
 
-var User = mongoose.model('User', UserSchema);
-    Employee = mongoose.model('Employee', EmployeeSchema);
+EmployerSchema.statics.findUniqueUsername = function(username, suffix, callback) {
+	var _this = this;
+	var possibleUsername = username + (suffix || '');
 
-// var Brian = new Employee({
-//   name : 'Brian Kirchoff',
-//   department : 'Engineering'
-// });
+	_this.findOne({
+		username: possibleUsername
+	}, function(err, user) {
+		if (!err) {
+			if (!user) {
+				callback(possibleUsername);
+			} else {
+				return _this.findUniqueUsername(username, (suffix || 0) + 1, callback);
+			}
+		} else {
+			callback(null);
+		}
+	});
+};
+
+JobsearcherSchema.statics.findUniqueUsername = function(username, suffix, callback) {
+	var _this = this;
+	var possibleUsername = username + (suffix || '');
+
+	_this.findOne({
+		username: possibleUsername
+	}, function(err, user) {
+		if (!err) {
+			if (!user) {
+				callback(possibleUsername);
+			} else {
+				return _this.findUniqueUsername(username, (suffix || 0) + 1, callback);
+			}
+		} else {
+			callback(null);
+		}
+	});
+};
+
+
+var User = mongoose.model('User', UserSchema);
+var Employer = mongoose.model('Employer', EmployerSchema);
+var Jobsearcher = mongoose.model('Jobsearcher', JobsearcherSchema);
 
 

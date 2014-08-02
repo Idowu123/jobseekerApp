@@ -36,7 +36,7 @@ var getErrorMessage = function(err) {
  */
 exports.create = function(req, res) {
 	var job = new Job(req.body);
-	job.user = req.user;
+	job.employer = req.user;
 
 	job.save(function(err) {
 		if (err) {

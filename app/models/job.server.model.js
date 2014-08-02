@@ -10,43 +10,39 @@ var mongoose = require('mongoose'),
  * Job Schema
  */
 var JobSchema = new Schema({
-	jobTitle: {
+	title: {
 		type: String,
 		default: '',
-		required: Please fill Job title,
+		required: 'Please fill Job title',
 		trim: true
 	},
 	created: {
 		type: Date,
 		default: Date.now
 	},
-	jobDescription: {
+	description: {
 		type: String,
 		trim: true,
-		default: '',
-		validate: [validateLocalStrategyProperty, 'Please fill in job description']
+		default: ''
 	},
 	vacancyNumber: {
 		type: Number,
 		trim: true,
-		default: '',
-		validate: [validateLocalStrategyProperty, 'Please fill in number of vacancies']
+		default: ''
 	},
 	industry: {
 		type: String,
 		trim: true,
-		default: '',
-		validate: [validateLocalStrategyProperty, 'Please fill in your industry']
+		default: ''
 	},
-	gender: {
+	location: {
 		type: String,
 		trim: true,
-		default: '',
-		validate: [validateLocalStrategyProperty, 'Please fill in reqire gender']
+		default: ''
 	},
-	user: {
+	employer: {
 		type: Schema.ObjectId,
-		ref: 'User'
+		ref: 'Employer'
 	}
 });
 

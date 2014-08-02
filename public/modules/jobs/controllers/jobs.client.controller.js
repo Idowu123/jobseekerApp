@@ -9,11 +9,11 @@ angular.module('jobs').controller('JobsController', ['$scope', '$stateParams', '
 		$scope.create = function() {
 			// Create new Job object
 			var job = new Jobs ({
-				jobTitle: this.jobTitle,
-				job description: this.jobDescription,
+				title: this.title,
+				description: this.description,
 				vacancyNumber: this.vacancyNumber,
 				industry: this.industry,
-				gender: this.gender
+				location: this.location
 
 			});
 
@@ -25,11 +25,11 @@ angular.module('jobs').controller('JobsController', ['$scope', '$stateParams', '
 			});
 
 			// Clear form fields
-			this.jobTitle = '';
-			this.job description = '',
-			this.vacancyNumber = '',
-			this.industry = '',
-			this.gender = '',
+			this.title = '';
+			this.description = '';
+			this.vacancyNumber = '';
+			this.industry = '';
+			this.location = '';
 		};
 
 		// Remove existing Job

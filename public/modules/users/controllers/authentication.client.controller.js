@@ -17,7 +17,8 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 			}).error(function(response) {
 				$scope.error = response.message;
 			});
-		};
+		}; 
+
 
 		$scope.signin = function() {
 			$http.post('/auth/signin', $scope.credentials).success(function(response) {
@@ -28,7 +29,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				$location.path('/');
 			}).error(function(response) {
 				$scope.error = response.message;
-			});
+				});
 		};
 	}
 ]);
