@@ -1,3 +1,36 @@
+@media screen and (max-width: 900px) {
+	.search{
+		width: 70%;
+		top: 10px;
+		right: 10px;
+		position: relative;
+		margin-bottom: 0;
+
+	}
+	.slider p{
+	color: #fff;
+	text-align: center;
+	font-size: 2em;
+	font-weight: 700;
+	}
+
+	.slider{
+		height: 100px ;
+
+	}
+}
+
+
+
+.group:after, .group:before{
+  content: ".";
+  display: table;
+}
+
+.group:after {
+  clear: both;
+}
+
 .content {
 	margin-top: 50px;
 }
@@ -6,4 +39,172 @@
 }
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
 	display: none !important;
+}
+body{
+	background-color: #F0F0E8;
+}
+header .navbar-brand{
+	height: 70px;
+}
+.navbar-brand img{
+	width: 45%;
+}
+.navbar-brand a img{
+
+	width: 50%;
+	height: 61px;
+
+}
+.container-fluid{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+img{
+	margin: 0;
+	padding: 0;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+p{
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+}
+
+.slider{
+	height: 250px;
+	width: 100%;
+	padding: 50px 0 0 0;
+	background: url("/modules/core/img/bg.jpg");
+	margin-bottom: 150px;
+}
+
+.slider img{
+	max-width: 100%; 
+	height: auto;
+}
+
+
+.slider p{
+	color: #fff;
+	text-align: center;
+	font-size: 35px;
+	font-weight: 700;
+}
+
+.search{
+	position: absolute;
+	top: 200px;
+	right: 310px;
+	background: #009966;
+	/*rgb(0, 186, 132);*/
+	width: 700px; 
+	z-index: 10;
+	height: 150px;
+}
+
+.home_div{
+	min-height: 50%;
+	border: 1px solid blue;
+	width: 200px;
+}
+
+#jobs_home{
+	/*position: relative;*/
+	/*border: 1px solid blue;*/
+	height: 200px;
+
+}
+
+
+
+.employers{
+	background-color: #3CB371;
+	/*#339966;*/
+	padding: 25px 0; 
+}
+
+.employers p{
+	color: #fff;
+	font-size: 25px;
+	width: 75%;
+}
+
+footer{
+	background-color: #000;
+	margin: 0;
+	padding: 0;
+	color: #555;
+}
+
+.specs li {
+display: inline-block;
+width: 300px;
+margin-right: 5px;
+text-align: left;
+padding-bottom: 0.273em;
+}
+
+.specs li a{
+	color: #000;
+}
+
+.specs li a:hover{
+	color: #339966;
+}
+
+
+.myfooter{
+	padding-top: 20px;
+}
+
+footer p{
+	font-size: 12px;
+}
+
+footer img{
+	width: 100px;
+	height: auto;
+}
+
+html{
+	box-sizing: border-box;
+}
+
+
+#signupForm .input-group {
+    margin-bottom: 20px;
+}
+
+/* get font-awesome to work with BS3 */
+.input-group-addon .icon-2x {
+    width: 28px;
+    min-width: 28px;
+    display: inline-block;
+}
+.formBox{
+	margin: 60px 0;
+	
+}
+.mywrapper{
+	height: 80%;
+	width: 800px;
+	margin: 0 auto;
+	border: 1px solid #dfdfdf;
+}
+
+.my_actualForm{
+	background: #fefefe;
+
+}
+
+.block-wrapper .title{
+	padding: 15px 30px;
+	background: #F0F0E8;
+	border-bottom: 2px solid #009966;
+}
+
+.submitForm .mybutton{
+	background-color: #009966;
 }

@@ -4,6 +4,7 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
+	userModels = require('../../app/models/user'),
 	Schema = mongoose.Schema;
 
 /**
@@ -40,9 +41,13 @@ var JobSchema = new Schema({
 		trim: true,
 		default: ''
 	},
+	// check the caps
 	employer: {
 		type: Schema.ObjectId,
 		ref: 'Employer'
+	},
+	applicants : {
+		type: [userModels.Jobsearcher]
 	}
 });
 

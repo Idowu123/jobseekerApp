@@ -2,7 +2,10 @@
 	.nav-users {
 		position: fixed;
 	}
+	
 }
+
+
 
 .remove-account-container {
 	display: inline-block;
@@ -14,3 +17,8 @@
 	right: 10px;
 	position: absolute;
 }
+
+
+
+
+

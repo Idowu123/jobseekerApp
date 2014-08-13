@@ -40,9 +40,10 @@ var getErrorMessage = function(err) {
 exports.signup = function(req, res) {
 	// For security measurement we remove the roles from the req.body object
 	delete req.body.roles;
-
+		console.log(req.body.type);
 	// Init Variables
 	var type = req.body.type;
+	console.log(type);
 	var user;
 	if(type === 'employer'){
 		user = new Employer(req.body);
@@ -77,6 +78,7 @@ exports.signup = function(req, res) {
 		}
 	});
 };
+
 
 /**
  * Signin after passport authentication
@@ -142,6 +144,9 @@ exports.update = function(req, res) {
 		});
 	}
 };
+
+
+
 
 /**
  * Change Password
@@ -247,6 +252,7 @@ exports.userByID = function(req, res, next, id) {
 	});
 };
 
+
 /**
  * Require login routing middleware
  */
@@ -277,6 +283,19 @@ exports.hasAuthorization = function(roles) {
 			}
 		});
 	};
+};
+
+/**
+* Check for job searchers only
+**/
+exports.jobSearchersOnly = function(req, res, next){
+	if (req.user._type !== 'Jobsearcher') {
+		return res.send(401, {
+			message: 'User is not logged in'
+		});
+	}
+
+	next();
 };
 
 /**
@@ -352,6 +371,7 @@ exports.saveOAuthUserProfile = function(req, providerUserProfile, done) {
 		}
 	}
 };
+
 
 /**
  * Remove OAuth provider

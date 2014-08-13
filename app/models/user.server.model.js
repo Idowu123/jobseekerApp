@@ -88,9 +88,7 @@ var UserSchema = new Schema({
 	{ collection : 'users', discriminatorKey : '_type' }
 );
 
-/**
- * Employer Schema(pls check)
- */
+
 var EmployerSchema = UserSchema.extend({
 	companyName: {
 		type: String,
@@ -110,6 +108,7 @@ var EmployerSchema = UserSchema.extend({
 		default: '',
 		validate: [validateLocalStrategyProperty, 'Please fill in your company webiste']
 	}
+
 });
 
 var JobsearcherSchema = UserSchema.extend({
@@ -159,6 +158,16 @@ UserSchema.pre('save', function(next) {
 	next();
 });
 
+
+
+
+// job = new Jobs ({
+// 				title: this.title,
+// 				description: this.description,
+// 				vacancyNumber: this.vacancyNumber,
+// 				industry: this.industry,
+// 				location: this.location
+// // check end
 
 /**	
  * Create instance method for hashing a password
@@ -266,5 +275,3 @@ JobsearcherSchema.statics.findUniqueUsername = function(username, suffix, callba
 var User = mongoose.model('User', UserSchema);
 var Employer = mongoose.model('Employer', EmployerSchema);
 var Jobsearcher = mongoose.model('Jobsearcher', JobsearcherSchema);
-
-

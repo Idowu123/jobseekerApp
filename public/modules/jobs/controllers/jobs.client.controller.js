@@ -1,8 +1,8 @@
 'use strict';
 
 // Jobs controller
-angular.module('jobs').controller('JobsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Jobs',
-	function($scope, $stateParams, $location, Authentication, Jobs ) {
+angular.module('jobs').controller('JobsController', ['$scope', '$http', '$stateParams', '$location', 'Authentication', 'Jobs',
+	function($scope, $http, $stateParams, $location, Authentication, Jobs ) {
 		$scope.authentication = Authentication;
 
 		// Create new Job
@@ -35,8 +35,7 @@ angular.module('jobs').controller('JobsController', ['$scope', '$stateParams', '
 		// Remove existing Job
 		$scope.remove = function( job ) {
 			if ( job ) { job.$remove();
-
-				for (var i in $scope.jobs ) {
+					for (var i in $scope.jobs ) {
 					if ($scope.jobs [i] === job ) {
 						$scope.jobs.splice(i, 1);
 					}
@@ -50,8 +49,7 @@ angular.module('jobs').controller('JobsController', ['$scope', '$stateParams', '
 
 		// Update existing Job
 		$scope.update = function() {
-			var job = $scope.job ;
-
+			var job = $scope.job;
 			job.$update(function() {
 				$location.path('jobs/' + job._id);
 			}, function(errorResponse) {
@@ -59,16 +57,45 @@ angular.module('jobs').controller('JobsController', ['$scope', '$stateParams', '
 			});
 		};
 
+
+		$scope.createApplication = function(){
+			console.log($scope.job._id);
+			var url = '/jobs/' + $scope.job._id + '/apply';
+
+			$http({method: 'GET', url: url}).
+			    success(function(data, status, headers, config) {
+			      $location.path('jobs/' + $scope.job._id + '/application_complete');
+			    }).
+			    error(function(data, status, headers, config) {
+			      console.log('failed to apply!');
+			    });
+		};
+
+		$scope.applicants = function(){
+			console.log('applicant');
+			var job = $scope.job;
+			$location.path('jobs/' + $scope.job._id + '/view_details');
+			console.log('done');
+		};
+	
 		// Find a list of Jobs
 		$scope.find = function() {
+		//	console.log(Jobs.query());
 			$scope.jobs = Jobs.query();
+			
 		};
 
 		// Find existing Job
 		$scope.findOne = function() {
+			// console.log($stateParams);
+
 			$scope.job = Jobs.get({ 
 				jobId: $stateParams.jobId
+
 			});
+
 		};
 	}
 ]);
+			
+	

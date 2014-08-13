@@ -1,94 +1,99 @@
-<section data-ng-controller="HomeController">
-	<div class="jumbotron text-center">
-		<!-- <div class="row">
-			<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
-				<img alt="MEAN.JS" class="img-responsive text-center" src="modules/core/img/brand/logo.png" />
+<div class="homy container-fluid" data-ng-controller="HomeController">
+	<div class="row-fluid">
+		<div class="slider container-fluid">
+			<div>
+				<p>Job hunting used to be stressful</p>
+				<p>...well, not anymore</p>
 			</div>
 		</div>
-		<br>
-		<div class="row">
-			<p class="lead">
-				Open-Source Full-Stack Solution For MEAN Applications
-			</p>
+		<div class="container">
+			<div id="home_div">
+				<div class="list-group" data-ng-controller="JobsController" data-ng-init="find()">
+					<div class="search">
+		        		<input type="text" ng-model="search.$" placeholder="Enter search keyword..."/>
+		    		</div>
+		    		<!-- <ul class="nav nav-tabs" role="tablist">
+		    			<li class="active"><a href="#latestjobs" role="tab" data-toggle="tab">Jobs</a></li>
+					  	<li><a href="#specialization" role="tab" data-toggle="tab">Specialization</a></li>
+					</ul> -->
+					<!-- <div class="tab-content"> -->
+					<!-- 	<div class="tab-pane active" id="latestjobs"> -->
+					<div>
+			        	<a data-ng-repeat="job in jobs | filter:search | limitTo:4" data-ng-href="#!/jobs/s/{{job._id}}" id="jobs_home" class="list-group-item col-md-6">
+				        	<h4>{{job.title}} at {{job.employer.companyName}}</h4>
+				        	<p>{{job.description}}</p>
+			       		</a>
+			       	</div>
+			       	<!-- <div class="tab-pane group specs" id= "specialization"> -->
+			       	<div class="group specs">
+				   		<ul>
+				   			<li><a href="#">Accounting/Audit/Tax</a></li>
+				   			<li><a href="#">Administration &amp; Office Support</a></li>
+				   			<li><a href="#">Banking / Finance / Insurance</a></li>
+				   			<li><a href="#">Building Design/Architecture</a></li>
+				   			<li><a href="#">Construction</a></li>
+				   			<li><a href="#">Consulting/Business Strategy &amp; Planning</a></li>
+							<li><a href="#">Creatives</a></li>
+							<li><a href="#">Customer Service</a></li>
+							<li><a href="#">Education/Teaching/Training</a></li>
+							<li><a href="#">Engineering</a></li>
+							<li><a href="#">Executive / Top Management</a></li>
+							<li><a href="#">Healthcare / Pharmaceutical</a></li>
+							<li><a href="#">Hospitality / Leisure / Travels</a></li>
+							<li><a href="#">Human Resources</a></li>
+							<li><a href="#">Information Technology</a></li>
+							<li><a href="#">Legal</a></li>
+							<li><a href="#">Logistics / Transportation</a></li>
+							<li><a href="#">Manufacturing / Production</a></li>
+							<li><a href="#">Marketing / Advertising / Communications</a></li>
+							<li><a href="#">NGO/Community Services &amp; Dev</a></li>
+							<li><a href="#">Oil&amp;Gas / Mining / Energy</a></li>
+							<li><a href="#"><a href="#">Project / Programme Management</a></li>
+							<li><a href="#">QA&amp;QC / HSE</a></li>
+							<li><a href="#">Real Estate / Property</a></li>
+							<li><a href="#">Research</a></li>
+							<li><a href="#">Sales/Business Development</a></li>
+							<li><a href="#">Supply Chain / Procurement</a></li>
+				   		</ul>
+				   	</div>	
+			   		<!-- </div> -->
+			   	</div>
+		   	</div>
+		</div>   	
+		<div class= "employers">
+			<div class="container">
+				<p>For Employers: Reach more Nigerian Jobseekers than any other service.</p>
+			</div>
 		</div>
-		<div class="row">
-			<p>
-				<a class="btn btn-primary btn-lg" href="http://meanjs.org" target="_blank">Learn more</a>
-			</p>
-		</div>
+		<footer>
+			<div class="container">
+				<div class="myfooter">
+					<div class="col-md-3">
+						<img src="/modules/core/img/logo-footer.png">
+						<p>JobseekerApp is a resource for the unemployed proffesionals in Nigeria. It is also one of africa's fast growing job board with over 80,000 members in over 15 countries and territorries around the globe.</p>
+					</div>
+					<div class="col-md-3"><p>For Candidates: You Can</p>
+						<ul>
+							<li>Find Jobs</li>
+							<li>Edit Your Profile</li>
+						</ul>
+					</div>
+					<div class="col-md-3"><p>For Employers: You Can</p>
+						<ul>
+							<li>Post A Job</li>
+							<li>Advertise</li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<p>copyright&copy;2014</p>
+							<p> Jumoke O
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
 	</div>
-	<div>
-		<h2>Congrats! You've configured and run the sample application.</h2>
-		<p>MEAN.JS is a web application boilerplate, which means you should start changing everything :-)</p>
-		<p>This sample application tracks users and articles.</p>
-		<ul>
-			<li>
-				Click
-				<em>Signup</em>
-				to get started.
-			</li>
-			<li>
-				Configure your app to work with your social accounts, by editing the
-				<em>/config/env/*.js</em>
-				files.
-			</li>
-			<li>
-				Edit your users module.
-			</li>
-			<li>
-				Add new CRUD modules.
-			</li>
-			<li>
-				Have fun...
-			</li>
-		</ul>
-	</div>
-	<div class="row">
-		<div class="col-md-3">
-			<h2>
-				<strong>M</strong>ongoDB
-			</h2>
-			<p><a target="_blank" href="http://mongodb.org/">MongoDB</a> is a database. MongoDB's <a target="_blank" href="http://docs.mongodb.org/manual/">great manual</a>, to get started with NoSQL and MongoDB.</p>
-		</div>
-		<div class="col-md-3">
-			<h2>
-				<strong>E</strong>xpress
-			</h2>
-			<p><a target="_blank" href="http://expressjs.com/"> Express</a> is an app server. Check out <a target="_blank" href="http://expressjs.com/guide.html">The Express Guide</a> or <a target="_blank" href="http://stackoverflow.com/questions/8144214/learning-express-for-node-js">StackOverflow</a> for more info.</p>
-		</div>
-		<div class="col-md-3">
-			<h2>
-				<strong>A</strong>ngularJS
-			</h2>
-			<p>AngularJS is web app framework. <a target="_blank" href="http://angularjs.org/">Angular's webiste</a> offers alot. The <a target="_blank" href="http://www.thinkster.io/">Thinkster Popular Guide</a> and <a target="_blank" href="https://egghead.io/">Egghead Videos</a> are great resources.</p>
-		</div>
-		<div class="col-md-3">
-			<h2>
-				<strong>N</strong>ode.js
-			</h2>
-			<p><a target="_blank" href="http://nodejs.org/">Node.js</a> is a web server. Node's website and this <a target="_blank" href="http://stackoverflow.com/questions/2353818/how-do-i-get-started-with-node-js">stackOverflow thread</a>, are great resources.</p>
-		</div>
-	</div>
-	<div class="well">
-		<h2>MEAN.JS Documentation</h2>
-		<p>
-			Once you're familiar with the foundation technology, check out the MEAN.JS Documentation:
-			<ul>
-				<li><a target="_blank" href="http://meanjs.org/docs.html">MEAN.JS Documentation</a>
-				</li>
-				<li><a target="_blank" href="http://meanjs.org/generator.html">Yoeman Generator</a>
-				</li>
-				<li><a target="_blank" href="http://meanjs.org/modules.html">Modules</a>
-				</li>
-				<li><a target="_blank" href="http://meanjs.org/changelog.html">Changelog</a>
-				</li>
-				<li><a target="_blank" href="http://meanjs.org/community.html">Community</a>
-				</li>
-				<li><a target="_blank" href="http://blog.meanjs.org">Blog</a>
-				</li>
-			</ul> -->
-	<!-- 	</p>
-	</div>
-	<br>Enjoy &amp; Keep Us Updated,
-	<br>The MEAN.JS Team. -->
-</section>
+</div>
+
+
+

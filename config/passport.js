@@ -2,6 +2,8 @@
 
 var passport = require('passport'),
 	User = require('mongoose').model('User'),
+	// Employer = mongoose.model('Employer'),
+	// Jobsearcher = mongoose.model('Jobsearcher'),
 	path = require('path'),
 	config = require('./config');
 
@@ -19,6 +21,12 @@ module.exports = function() {
 			done(err, user);
 		});
 	});
+	// Employer.findOne({
+	// 		_id: id
+	// 	}, '-salt -password', function(err, user) {
+	// 		done(err, user);
+	// 	});
+	// });
 
 	// Initialize strategies
 	config.getGlobbedFiles('./config/strategies/**/*.js').forEach(function(strategy) {

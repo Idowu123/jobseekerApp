@@ -29,5 +29,21 @@ angular.module('users').config(['$stateProvider',
 			url: '/signin',
 			templateUrl: 'modules/users/views/signin.client.view.html'
 		});
+		// state('jobseeker_signin', {
+		// 	url: '/signin',
+		// 	templateUrl: 'modules/users/views/jobseeker_signin.client.view.html'
+		// });
 	}
 ]);
+
+/*
+		$stateProvider.
+		state('employer_home', {
+			url: '/',
+			templateUrl: 'modules/jobs/views/employer_list-jobs.client.view.html'
+		});*/
+		// $stateProvider.
+		// state('seeker_home', {
+		// 	url: '/',
+		// 	templateUrl: 'modules/jobs/views/seeker_list-jobs.client.view.html'
+		// });

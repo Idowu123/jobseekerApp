@@ -1,0 +1,14 @@
+<section data-ng-controller="JobsController" data-ng-init="findOne()">
+	<div>
+        <a data-ng-repeat="applicant in job.applicants">
+            <p>{{applicant.firstName}} {{applicant.lastName}}</p>
+            <p data-ng-bind="applicant.address"></p>
+            <p data-ng-bind="applicant.email"></p>
+            <p data-ng-bind="applicant.phoneNumber"></p>
+            <p data-ng-bind="applicant.proffession"></p>
+            <p data-ng-bind="applicant.qualification"></p>
+            <p data-ng-bind="applicant.experience"></p>
+        </a>
+    </div>
+</section>
+	
