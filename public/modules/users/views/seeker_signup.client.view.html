@@ -1,91 +1,71 @@
-<section class="row" data-ng-controller="AuthenticationController">
-	<div class="block-wrapper">
-	<!-- <h4>Jobseekers signup</h4>
-	<h3 class="col-md-12 text-center">Sign up with your email</h3> -->
+<section class="row formBox" data-ng-controller="AuthenticationController">
+	<div class="block-wrapper mywrapper group">
 		<div class="title">
 			<h3>Jobseekers signup with your email</h3>
 		</div>
-		<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
-			<form data-ng-submit="signup()" class="signin form-horizontal" novalidate autocomplete="off">
-				<fieldset>
-					<div class="form-group">
-						<label for="firstName">First Name</label>
-						<input type="text" required id="firstName" name="firstName" class="form-control" data-ng-model="credentials.firstName" placeholder="First Name">
-					</div>
-					<div class="form-group">
-						<label for="lastName">Last Name</label>
-						<input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="credentials.lastName" placeholder="Last Name">
-					</div>
-					<div class="form-group">
-						<label for="email">Email</label>
-						<input type="text" id="email" name="email" class="form-control" data-ng-model="credentials.email" placeholder="Email">
-					</div>
-					<div class="form-group">
-						<label for="username">Username</label>
-						<input type="text" id="username" name="username" class="form-control" data-ng-model="credentials.username" placeholder="Username">
-					</div>
-					<div class="form-group">
-						<label for="password">Password</label>
-						<input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Password">
-					</div>
-					<div class="form-group">
-						<label class="control-label" for="address">Contact Address</label>
-						<div class="controls">
-							<textarea data-ng-model="credentials.address" id="address" class="form-control" cols="30" rows="10" placeholder="Address"></textarea>
+		<div class="my_actualForm group">
+			<div class="col-md-offset-4 col-md-4">
+				<form data-ng-submit="signup()" class="signin form-horizontal" novalidate autocomplete="off">
+					<fieldset>
+						<div class="form-group">
+							<label for="firstName">First Name</label>
+							<input type="text" required id="firstName" name="firstName" class="form-control" data-ng-model="credentials.firstName" placeholder="First Name">
 						</div>
-					</div>
-					<div class="form-group">
-						<label for="phoneNumber">PhoneNumber</label>
-						<input type="text" id="phoneNumber" name="phoneNumber" class="form-control" data-ng-model="credentials.phoneNumber" placeholder="Your Number">
-					</div>
-					<div class="form-group">
-						<label for="age">Age</label>
-						<input type="text" id="age" name="age" class="form-control" data-ng-model="credentials.age" placeholder="Your Age">
-					</div>
-					<div class="form-group">
-						<label for="proffession">Proffession</label>
-						<input type="text" id="proffession" name="proffession" class="form-control" data-ng-model="credentials.proffession" placeholder="your proffession">
-					</div>
-					<div class="form-group">
-						<label for="qualification">Qualification</label>
-						<input type="text" id="qualification" name="qualification" class="form-control" data-ng-model="credentials.qualification" placeholder="Your QUalification">
-					</div>
-					<div class="form-group">
-						<label for="experience">Experience</label>
-						<input type="text" id="experience" name="experience" class="form-control" data-ng-model="credentials.experience" placeholder="Years of Experience">
-					</div>
-					<div class="text-center form-group">
-						<button type="submit" class="btn btn-large btn-primary">Sign up</button>&nbsp; or&nbsp;
-						<a href="/#!/signin" class="show-signup">Sign in</a>
-					</div>
-					<div data-ng-show="error" class="text-center text-danger">
-						<strong data-ng-bind="error"></strong>
-					</div>
-				</fieldset>
-				<input type="hidden" value="Jobsearcher" data-ng-model="credentials.type">
-			</form>
-			<!-- <div class="row">
-	            <div class="col-xs-12">
-	                <form id="signupForm" method="POST" action="#hahaha" accept-charset="UTF-8">
-	                    <div class="input-group">
-	                        <span class="input-group-addon"><i class="icon-envelope icon-2x"></i></span>
-	                        <input id="email" class="form-control input-lg" placeholder="Email" required="required" maxlength="100" type="text" name="email" value="">
-	                    </div>
-	                    <div class="input-group">
-	                        <span class="input-group-addon"><i class="icon-asterisk icon-2x"></i></span>
-	                        <input id="password" class="form-control input-lg" placeholder="Password" required="required" maxlength="60" type="password" name="password">
-	                    </div>
-	                    <div class="input-group">
-	                        <span class="input-group-addon"><i class="icon-asterisk icon-2x"></i></span>
-	                        <input id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" required="required" maxlength="60" type="password" name="password_confirmation">
-	                    </div>
-	                    <div class="form-group">
-	                        <button type="submit" id="btn-signup" class="btn btn-block btn-primary btn-lg">Sign Up</button>
-	                    </div> -->
-	              <!--   </form>
-	            </div>
-	        </div> -->    
-	    </div>
+						<div class="form-group">
+							<label for="lastName">Last Name</label>
+							<input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="credentials.lastName" placeholder="Last Name">
+						</div>
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="text" id="email" name="email" class="form-control" data-ng-model="credentials.email" placeholder="Email">
+						</div>
+						<div class="form-group">
+							<label for="username">Username</label>
+							<input type="text" id="username" name="username" class="form-control" data-ng-model="credentials.username" placeholder="Username">
+						</div>
+						<div class="form-group">
+							<label for="password">Password</label>
+							<input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Password">
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="address">Contact Address</label>
+							<div class="controls">
+								<textarea data-ng-model="credentials.address" id="address" class="form-control" cols="30" rows="10" placeholder="Address"></textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="phoneNumber">PhoneNumber</label>
+							<input type="text" id="phoneNumber" name="phoneNumber" class="form-control" data-ng-model="credentials.phoneNumber" placeholder="Your Number">
+						</div>
+						<div class="form-group">
+							<label for="age">Age</label>
+							<input type="text" id="age" name="age" class="form-control" data-ng-model="credentials.age" placeholder="Your Age">
+						</div>
+						<div class="form-group">
+							<label for="proffession">Proffession</label>
+							<input type="text" id="proffession" name="proffession" class="form-control" data-ng-model="credentials.proffession" placeholder="your proffession">
+						</div>
+						<div class="form-group">
+							<label for="qualification">Qualification</label>
+							<input type="text" id="qualification" name="qualification" class="form-control" data-ng-model="credentials.qualification" placeholder="Your QUalification">
+						</div>
+						<div class="form-group">
+							<label for="experience">Experience</label>
+							<input type="text" id="experience" name="experience" class="form-control" data-ng-model="credentials.experience" placeholder="Years of Experience">
+						</div>
+						<div class="text-center form-group submitForm">
+							<button type="submit" class="btn btn-large btn-success">Sign up</button>&nbsp; or&nbsp;
+							<a href="/#!/signin" class="show-signup">Sign in</a>
+						</div>
+						<div data-ng-show="error" class="text-center text-danger">
+							<strong data-ng-bind="error"></strong>
+						</div>
+					</fieldset>
+					<input type="hidden" value="Jobsearcher" data-ng-model="credentials.type">
+				</form>
+
+		    </div>
+		</div>
 	</div>
 </section>
 

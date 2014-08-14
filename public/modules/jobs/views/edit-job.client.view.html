@@ -1,48 +1,52 @@
-<section data-ng-controller="JobsController" data-ng-init="findOne()">
-    <div class="page-header">
-        <h1>Edit Job</h1>
-    </div>
-    <div class="col-md-12">
-        <form class="form-horizontal" data-ng-submit="update()" novalidate>
-            <fieldset>
-                <div class="form-group">
-                    <label class="control-label" for="title">Job Title</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="job.title" id="title" class="form-control" placeholder="Job Title" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="description">Job Description</label>
-                    <div class="controls">
-                        <textarea data-ng-model="job.description" id="description" class="form-control" cols="30" rows="10" placeholder="Job Description"></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="vacancyNumber">Vacancy Number</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="job.vacancyNumber" id="vacancyNumber" class="form-control" placeholder="vacancyNumber" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="industry">Industry</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="job.industry" id="industry" class="form-control" placeholder="Industry" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="location">Location</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="job.location" id="location" class="form-control" placeholder="Location" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Update" class="btn btn-default">
-                </div>
-				<div data-ng-show="error" class="text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
-            </fieldset>
-        </form>
+<section class="row formBox" data-ng-controller="JobsController" data-ng-init="findOne()">
+    <div class="block-wrapper mywrapper group">
+        <div class="title">
+            <h1>Edit Job</h1>
+        </div>
+        <div class="my_actualForm group">
+            <div class="col-md-offset-4 col-md-4">
+                <form class="form-horizontal" data-ng-submit="update()" novalidate>
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="control-label" for="title">Job Title</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="job.title" id="title" class="form-control" placeholder="Job Title" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="description">Job Description</label>
+                            <div class="controls">
+                                <textarea data-ng-model="job.description" id="description" class="form-control" cols="30" rows="10" placeholder="Job Description"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="vacancyNumber">Vacancy Number</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="job.vacancyNumber" id="vacancyNumber" class="form-control" placeholder="vacancyNumber" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="industry">Industry</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="job.industry" id="industry" class="form-control" placeholder="Industry" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="location">Location</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="job.location" id="location" class="form-control" placeholder="Location" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Update" class="btn btn-large btn-success myButton">
+                        </div>
+        				<div data-ng-show="error" class="text-danger">
+        					<strong data-ng-bind="error"></strong>
+        				</div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
     </div>
 </section>
 

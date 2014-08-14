@@ -12,14 +12,8 @@
 					<div class="search">
 		        		<input type="text" ng-model="search.$" placeholder="Enter search keyword..."/>
 		    		</div>
-		    		<!-- <ul class="nav nav-tabs" role="tablist">
-		    			<li class="active"><a href="#latestjobs" role="tab" data-toggle="tab">Jobs</a></li>
-					  	<li><a href="#specialization" role="tab" data-toggle="tab">Specialization</a></li>
-					</ul> -->
-					<!-- <div class="tab-content"> -->
-					<!-- 	<div class="tab-pane active" id="latestjobs"> -->
 					<div>
-			        	<a data-ng-repeat="job in jobs | filter:search | limitTo:4" data-ng-href="#!/jobs/s/{{job._id}}" id="jobs_home" class="list-group-item col-md-6">
+			        	<a data-ng-repeat="job in jobs | filter:search | limitTo:4" data-ng-href="#!/jobs/{{job._id}}" id="jobs_home" class="list-group-item col-md-6">
 				        	<h4>{{job.title}} at {{job.employer.companyName}}</h4>
 				        	<p>{{job.description}}</p>
 			       		</a>

@@ -1,0 +1,23 @@
+<section class="row formBox" data-ng-controller="JobsController" data-ng-init="find()">
+    <div class="block-wrapper mywrapper group">
+        <div class="title">
+            <h1>Jobs</h1>
+        </div>
+        <div class="container my_actualForm signin_box group">
+            <div class="list-group" id="repeat">
+                <a data-ng-repeat="job in jobs | filter:search" data-ng-href="#!/jobs/{{job._id}}" class="list-group-item">
+                    <small class="list-group-item-text">
+                        Posted on
+                        <span data-ng-bind="job.created | date:'medium'"></span>
+                        by
+                        <span data-ng-bind="job.employer.companyName"></span>
+                    </small>
+                    <h4 class="list-group-item-heading" data-ng-bind="job.title"></h4>
+                </a>
+            </div>
+            <div class="alert alert-warning text-center" data-ng-show="authentication.user._type == 'Employer'" data-ng-hide="!jobs.$resolved || jobs.length">
+                No Jobs yet, why don't you <a href="/#!/jobs/create">create one</a>?
+            </div>
+        </div>
+    </div>
+</section>

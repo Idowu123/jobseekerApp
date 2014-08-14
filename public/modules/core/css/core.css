@@ -154,7 +154,9 @@ padding-bottom: 0.273em;
 	color: #339966;
 }
 
-
+.myfooter li{
+	list-style: none;
+}
 .myfooter{
 	padding-top: 20px;
 }
@@ -177,12 +179,13 @@ html{
     margin-bottom: 20px;
 }
 
-/* get font-awesome to work with BS3 */
-.input-group-addon .icon-2x {
+/* get font-awesome to work with BS3 
+./*input-group-addon .icon-2x {
     width: 28px;
     min-width: 28px;
     display: inline-block;
-}
+}*/
+
 .formBox{
 	margin: 60px 0;
 	
@@ -198,13 +201,24 @@ html{
 	background: #fefefe;
 
 }
-
+.signin_box {
+	width:800px;
+}
 .block-wrapper .title{
 	padding: 15px 30px;
 	background: #F0F0E8;
 	border-bottom: 2px solid #009966;
 }
 
-.submitForm .mybutton{
-	background-color: #009966;
+.submitForm a{
+	color: #009966;
 }
+
+.input-group{
+	margin-bottom: 25px;
+}
+
+/*.btn-success:hover{
+	background-color: #fff;
+	color: #2E8B57;
+}*/

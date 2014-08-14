@@ -16,16 +16,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				console.log($scope.authentication.user.companyName);
 				console.log($scope.authentication.user._id);
 				//And redirect to the index page
-				if ('Employer'){
-					console.log('employerworking');
-					$location.path('/employer');	
-				}
-				else if ($scope.authentication.user._type === 'Jobsearcher') {
-					console.log('seeker');
-					$location.path('/seeker');
-				}
-				else
-					{$location.path('/');}
+					$location.path('/');
 			}).error(function(response) {
 				$scope.error = response.message;
 			});
@@ -42,14 +33,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				console.log($scope.authentication.user);
 
 				//And redirect to the index page
-				if ($scope.authentication.user._type === 'Employer'){
-					console.log('employerworking');
-					$location.path('/employer');	
-				}
-				else{
-					console.log('seeker');
-					$location.path('/seeker');
-				}
+				$location.path('/jobs');
 			}).error(function(response) {
 				$scope.error = response.message;
 				});
