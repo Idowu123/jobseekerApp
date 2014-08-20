@@ -155,16 +155,3 @@ exports.apply = function(req, res) {
 
 
 
-
-
-//job.find({ hasApplication: true }, function(err, job) {
-//   if (err){
-// 	return res.send(400, {
-// 		message: getErrorMessage(err)
-// 	});
-// } else {
-// 	res.jsonp(jobs);
-// });
-
-
-

@@ -290,14 +290,29 @@ exports.hasAuthorization = function(roles) {
 **/
 exports.jobSearchersOnly = function(req, res, next){
 	if (req.user._type !== 'Jobsearcher') {
-		return res.send(401, {
-			message: 'User is not logged in'
+		return res.send(403, {
+			message: 'User is not authorized'
 		});
 	}
 
 	next();
 };
 
+exports.canApplyOnce = function(req, res, next) {
+	var job = req.job;
+	var count;
+	for (count=0; count < job.length-1; count++) {
+		if(req.user._id === job.applicants._id){
+			console.log('you have applied for this job before now');
+			return res.send(403, {
+			message: 'User is not authorized'
+			});
+		}
+
+		next();
+	}
+
+};
 /**
  * Helper function to save or update a OAuth user profile
  */

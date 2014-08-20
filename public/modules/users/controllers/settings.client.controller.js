@@ -42,7 +42,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 		$scope.updateUserProfile = function() {
 			$scope.success = $scope.error = null;
 			var user = new Users($scope.user);
-
+			console.log(user);
 			user.$update(function(response) {
 				$scope.success = true;
 				Authentication.user = response;

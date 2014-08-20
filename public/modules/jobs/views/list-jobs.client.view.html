@@ -5,7 +5,7 @@
         </div>
         <div class="container my_actualForm signin_box group">
             <div class="list-group" id="repeat">
-                <a data-ng-repeat="job in jobs | filter:search" data-ng-href="#!/jobs/{{job._id}}" class="list-group-item">
+                <a data-ng-repeat="job in jobs" data-ng-href="#!/jobs/{{job._id}}" class="list-group-item">
                     <small class="list-group-item-text">
                         Posted on
                         <span data-ng-bind="job.created | date:'medium'"></span>

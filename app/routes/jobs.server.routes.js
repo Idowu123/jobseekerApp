@@ -18,7 +18,7 @@ module.exports = function(app) {
 		.delete(users.requiresLogin, jobs.hasAuthorization, jobs.delete);
 
 	 app.route('/jobs/:jobId/apply')
-	 	.get(users.requiresLogin, users.jobSearchersOnly, jobs.apply);
+	 	.get(users.requiresLogin, users.jobSearchersOnly, users.canApplyOnce, jobs.apply);
 	 	
 		
 	// Finish by binding the Job middleware

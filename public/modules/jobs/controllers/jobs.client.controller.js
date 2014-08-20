@@ -88,7 +88,6 @@ angular.module('jobs').controller('JobsController', ['$scope', '$http', '$stateP
 		// Find existing Job
 		$scope.findOne = function() {
 			// console.log($stateParams);
-
 			$scope.job = Jobs.get({ 
 				jobId: $stateParams.jobId
 

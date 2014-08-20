@@ -12,8 +12,6 @@
 						</div>				
 						<div class="panel-body">
 							<p data-ng-bind="job.description"></p>
-							<p data-ng-bind="job.vacancyNumber"></p>
-							<p data-ng-bind="job.industry"></p>
 						</div>
 						<div class="panel-footer">
 							<div data-ng-show="authentication.user._type == 'Jobsearcher'">
@@ -29,7 +27,8 @@
 							</div>
 							<div data-ng-show="authentication.user._type == 'Employer'">
 								<a class="btn btn-success" href="/#!/jobs/{{job._id}}/edit">
-									<i class="glyphicon glyphicon-edit"></i>
+									<i class="glyphicon glyphic
+									on-edit"></i>
 								</a>
 								<a class="btn btn-success" data-ng-click="remove();">
 									<i class="glyphicon glyphicon-trash"></i>
@@ -37,31 +36,45 @@
 							</div>
 						</div>
 					</div>
-					<div class="panel panel-default">
-						<div class="panel-body">
-							<div data-ng-show="authentication.user._type == 'Jobsearcher'">
-				                Jobs Previously applied for by you:
-				                <div id="applied_jobs">
-				                    <a data-ng-repeat="job in jobs | filter: authentication.user._id">
-				                         <p data-ng-bind="job.title"></p>
-				                    </a>
-				                </div>
-					        </div>
-					        <div data-ng-show="authentication.user._type == 'Employer'">
-					        	A  list of those who have applied for your job:
+					<div data-ng-show="authentication.user._type === 'Jobsearcher'" data-ng-init="find()">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<p>Jobs Previously applied for by you:</p>
+				            </div>
+
+			                <div class="panel-body">
+			                	<div class="list-group" id="repeat">
+					                <div id="applied_jobs">
+					                    <a data-ng-repeat="job in jobs | filter:authentication.user._id" class="list-group-item">
+					                  	    <p>{{job.title}} at <strong>{{job.employer.companyName}}</strong></p>
+					                    </a>
+					                </div>
+					      
+					            </div>
+			                </div>
+					    </div>
+					</div>
+				    <div data-ng-show="authentication.user._type == 'Employer'">
+			        	<div class="panel panel-default">
+				        	<div class="panel-heading">
+				        		<p>A  list of those who have applied for your job:</p>
+				        	</div>
+				        	<div class="panel-body">
 								<div class="list-group">
 							        <a data-ng-repeat="applicant in job.applicants" class="list-group-item-text" data-ng-href="/#!/jobs/{{job._id}}/view_details">
 							        <ul>
-							        	<li>{{applicant.firstName}} {{applicant.lastName}}</li>
+							        	<li style="color:#3CB371">{{applicant.firstName}} {{applicant.lastName}}</li>
 							        </ul>
 							        </a>
 							    </div>
-					        </div>
-						</div>
+							</div>
+				        </div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+
+
 
