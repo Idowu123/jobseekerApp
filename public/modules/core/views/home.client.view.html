@@ -10,7 +10,7 @@
 			<div id="home_div">
 				<div class="list-group" data-ng-controller="JobsController" data-ng-init="find()">
 					<div>
-						<div class="search">
+						<div class="search col-md-offset-2 col-md-8">
 			        		<input type="text" ng-model="search.$" placeholder="Enter search keyword..."/>
 			    		</div>
 			        	<a data-ng-repeat="job in jobs | filter:search | limitTo:4" data-ng-href="#!/jobs/{{job._id}}" id="jobs_home" class="list-group-item col-md-6">
@@ -19,41 +19,6 @@
 			       		</a>
 			       	</div>
 			    </div>
-			    <div>
-			       	<!-- <div class="tab-pane group specs" id= "specialization"> -->
-			       <!-- 	<div class="group specs">
-				   		<ul>
-				   			<li><a href="#!/jobs">Accounting/Audit/Tax</a></li>
-				   			<li><a href="#!/jobs">Administration &amp; Office Support</a></li>
-				   			<li><a href="#!/jobs">Banking / Finance / Insurance</a></li>
-				   			<li><a href="#!/jobs">Building Design/Architecture</a></li>
-				   			<li><a href="#!/jobs">Construction</a></li>
-				   			<li><a href="#!/jobs">Consulting/Business Strategy &amp; Planning</a></li>
-							<li><a href="#!/jobs">Creatives</a></li>
-							<li><a href="#!/jobs">Customer Service</a></li>
-							<li><a href="#!/jobs">Education/Teaching/Training</a></li>
-							<li><a href="#!/jobs">Engineering</a></li>
-							<li><a href="#!/jobs">Executive / Top Management</a></li>
-							<li><a href="#!/jobs">Healthcare / Pharmaceutical</a></li>
-							<li><a href="#!/jobs">Hospitality / Leisure / Travels</a></li>
-							<li><a href="#!/jobs">Human Resources</a></li>
-							<li><a href="#!/jobs">Information Technology</a></li>
-							<li><a href="#!/jobs">Legal</a></li>
-							<li><a href="#!/jobs">Logistics / Transportation</a></li>
-							<li><a href="#!/jobs">Manufacturing / Production</a></li>
-							<li><a href="#!/jobs">Marketing / Advertising / Communications</a></li>
-							<li><a href="#!/jobs">NGO/Community Services &amp; Dev</a></li>
-							<li><a href="#!/jobs">Oil&amp;Gas / Mining / Energy</a></li>
-							<li><a href="#!/jobs"><a href="#">Project / Programme Management</a></li>
-							<li><a href="#!/jobs">QA&amp;QC / HSE</a></li>
-							<li><a href="#!/jobs">Real Estate / Property</a></li>
-							<li><a href="#!/jobs">Research</a></li>
-							<li><a href="#!/jobs">Sales/Business Development</a></li>
-							<li><a href="#!/jobs">Supply Chain / Procurement</a></li>
-				   		</ul>
-				   	</div>	 -->
-			   		<!-- </div> -->
-			   	</div>
 		   	</div>
 		</div>   	
 		<div class= "employers">

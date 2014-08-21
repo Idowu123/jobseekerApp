@@ -145,6 +145,7 @@ p{
 
 #jobs_home{
 	height: 200px;
+	overflow: hidden;
 
 }
 
