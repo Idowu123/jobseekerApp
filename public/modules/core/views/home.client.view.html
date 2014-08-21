@@ -13,7 +13,7 @@
 						<div class="search col-md-offset-2 col-md-8">
 			        		<input type="text" ng-model="search.$" placeholder="Enter search keyword..."/>
 			    		</div>
-			        	<a data-ng-repeat="job in jobs | filter:search | limitTo:4" data-ng-href="#!/jobs/{{job._id}}" id="jobs_home" class="list-group-item col-md-6">
+			        	<a data-ng-repeat="job in jobs | filter:search | limitTo:4" data-ng-href="#!/jobs/{{job._id}}" id="jobs_home" class="list-group-item col-md-6" style="overflow: hidden;">
 				        	<h4>{{job.title}} at {{job.employer.companyName}}</h4>
 				        	<p>{{job.description}}</p>
 			       		</a>
@@ -23,7 +23,7 @@
 		</div>   	
 		<div class= "employers">
 			<div class="container">
-				<p>For Employers: Reach more Nigerian Jobseekers than any other service.</p>
+				<p class="text-center">For Employers: Reach more Nigerian Jobseekers than any other service.</p>
 			</div>
 		</div>
 		<footer>
