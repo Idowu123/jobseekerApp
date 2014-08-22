@@ -117,7 +117,7 @@ var JobsearcherSchema = UserSchema.extend({
 		trim: true,
 		default: ''
 	},
-	profesion: {
+	profession: {
 		type: String,
 		trim: true,
 		default: ''
