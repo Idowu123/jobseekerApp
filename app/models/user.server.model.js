@@ -133,12 +133,12 @@ var JobsearcherSchema = UserSchema.extend({
 		default: ''
 	},
 	phoneNumber: {
-		type: Number,
+		type: String,
 		trim: true,
 		default: ''
 	},
 	age: {
-		type: Number,
+		type: String,
 		trim: true,
 		default: ''
 	}
