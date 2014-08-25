@@ -305,12 +305,12 @@ exports.canApplyOnce = function(req, res, next) {
 		if(req.user._id === job.applicants._id){
 			console.log('you have applied for this job before now');
 			return res.send(403, {
-			message: 'User is not authorized'
+				message: 'User is not authorized'
 			});
 		}
-
-		next();
 	}
+	console.log('can apply once');
+	next();
 
 };
 /**

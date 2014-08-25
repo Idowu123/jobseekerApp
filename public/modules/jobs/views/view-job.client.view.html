@@ -44,7 +44,7 @@
 			                <div class="panel-body">
 			                	<div class="list-group" id="repeat">
 					                <div id="applied_jobs">
-					                    <a data-ng-repeat="job in jobs | filter:authentication.user._id" class="list-group-item">
+					                    <a data-ng-repeat="job in jobs | filter:authentication.user._id" class="list-group-item" style="color:#1fa67a">
 					                  	    <p>{{job.title}} at <strong>{{job.employer.companyName}}</strong></p>
 					                    </a>
 					                </div>
@@ -52,6 +52,7 @@
 					            </div>
 			                </div>
 					    </div>
+					    <a class="btn btn-success btn-block btn-custom" href="/#!/jobs">List Jobs</a>
 					</div>
 				    <div data-ng-show="authentication.user._type == 'Employer'">
 			        	<div class="panel panel-default">

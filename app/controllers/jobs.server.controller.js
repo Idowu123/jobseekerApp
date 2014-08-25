@@ -138,6 +138,7 @@ exports.hasAuthorization = function(req, res, next) {
 
 
 exports.apply = function(req, res) {
+	console.log('apply!');
 	var job = req.job;
 	console.log(job);
 	job.applicants.push(req.user);

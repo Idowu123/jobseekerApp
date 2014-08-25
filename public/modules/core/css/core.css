@@ -48,7 +48,9 @@
   -webkit-font-smoothing: antialiased;
 }
 
-
+.panel-body{
+	color: #1fa67a;
+}
 .group:after, .group:before{
   content: ".";
   display: table;

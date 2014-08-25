@@ -159,16 +159,6 @@ UserSchema.pre('save', function(next) {
 });
 
 
-
-
-// job = new Jobs ({
-// 				title: this.title,
-// 				description: this.description,
-// 				vacancyNumber: this.vacancyNumber,
-// 				industry: this.industry,
-// 				location: this.location
-// // check end
-
 /**	
  * Create instance method for hashing a password
  */

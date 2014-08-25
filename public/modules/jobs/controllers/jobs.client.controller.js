@@ -61,14 +61,28 @@ angular.module('jobs').controller('JobsController', ['$scope', '$http', '$stateP
 		$scope.createApplication = function(){
 			console.log($scope.job._id);
 			var url = '/jobs/' + $scope.job._id + '/apply';
+			console.log(url, 'done');
 
-			$http({method: 'GET', url: url}).
-			    success(function(data, status, headers, config) {
-			      $location.path('jobs/' + $scope.job._id + '/application_complete');
-			    }).
-			    error(function(data, status, headers, config) {
-			      console.log('failed to apply!');
-			    });
+
+			$http.get(url).success(function(response) {
+		    // If successful show success message and clear form
+		    	console.log('in call back function');
+		    	$scope.success = true;
+		    		console.log('success');
+			    	$location.path('jobs/' + $scope.job._id + '/application_complete');
+			  	}).error(function(response) {
+			    $scope.error = response.message;
+
+			});
+
+			// $http({method: 'GET', url: url}).
+			//     success(function(data, status, headers, config) {
+			//     	console.log('apply_location');
+			//       $location.path('jobs/' + $scope.job._id + '/application_complete');
+			//     }).
+			//     error(function(data, status, headers, config) {
+			//       console.log('failed to apply!');
+			// });
 		};
 
 		$scope.applicants = function(){
