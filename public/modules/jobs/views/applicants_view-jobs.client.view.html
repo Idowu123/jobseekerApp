@@ -1,14 +1,25 @@
-<section data-ng-controller="JobsController" data-ng-init="findOne()">
-	<div>
-        <a data-ng-repeat="applicant in job.applicants">
-            <p>{{applicant.firstName}} {{applicant.lastName}}</p>
-            <p data-ng-bind="applicant.address"></p>
-            <p data-ng-bind="applicant.email"></p>
-            <p data-ng-bind="applicant.phoneNumber"></p>
-            <p data-ng-bind="applicant.proffession"></p>
-            <p data-ng-bind="applicant.qualification"></p>
-            <p data-ng-bind="applicant.experience"></p>
-        </a>
+<section class="row formBox" data-ng-controller="JobsController" data-ng-init="viewApplicant(applicant, $index)">
+	<div class="block-wrapper mywrapper group">
+        <div class="my_actualForm group">
+            <div class="col-md-offset-4 col-md-4">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <p>{{applicant.firstName}} {{applicant.lastName}}</p>
+                    </div>
+                    <div class="panel-body">
+                        <p data-ng-bind="applicant.address"></p>
+                        <p data-ng-bind="applicant.email"></p>
+                        <p data-ng-bind="applicant.phoneNumber"></p>
+                        <p data-ng-bind="applicant.proffession"></p>
+                        <p data-ng-bind="applicant.qualification"></p>
+                        <p data-ng-bind="applicant.experience"></p>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
     </div>
 </section>
 	
+    

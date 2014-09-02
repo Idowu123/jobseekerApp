@@ -415,14 +415,23 @@ angular.module('jobs').controller('JobsController', [
     $scope.createApplication = function () {
       console.log($scope.job._id);
       var url = '/jobs/' + $scope.job._id + '/apply';
-      $http({
-        method: 'GET',
-        url: url
-      }).success(function (data, status, headers, config) {
+      console.log(url, 'done');
+      $http.get(url).success(function (response) {
+        // If successful show success message and clear form
+        console.log('in call back function');
+        $scope.success = true;
+        console.log('success');
         $location.path('jobs/' + $scope.job._id + '/application_complete');
-      }).error(function (data, status, headers, config) {
-        console.log('failed to apply!');
-      });
+      }).error(function (response) {
+        $scope.error = response.message;
+      });  // $http({method: 'GET', url: url}).
+           //     success(function(data, status, headers, config) {
+           //     	console.log('apply_location');
+           //       $location.path('jobs/' + $scope.job._id + '/application_complete');
+           //     }).
+           //     error(function(data, status, headers, config) {
+           //       console.log('failed to apply!');
+           // });
     };
     $scope.applicants = function () {
       console.log('applicant');

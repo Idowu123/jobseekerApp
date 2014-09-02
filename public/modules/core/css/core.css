@@ -31,25 +31,14 @@
 .dropdown-menu {
         .border-radius(0px);
 }
-.btn-custom {
-  background-color: hsl(163, 100%, 16%) !important;
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3dffc8", endColorstr="#00513a");
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#3dffc8), to(#00513a));
-  background-image: -moz-linear-gradient(top, #3dffc8, #00513a);
-  background-image: -ms-linear-gradient(top, #3dffc8, #00513a);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3dffc8), color-stop(100%, #00513a));
-  background-image: -webkit-linear-gradient(top, #3dffc8, #00513a);
-  background-image: -o-linear-gradient(top, #3dffc8, #00513a);
-  background-image: linear-gradient(#3dffc8, #00513a);
-  border-color: #00513a #00513a hsl(163, 100%, 4.5%);
-  color: #fff !important;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75);
-  -webkit-font-smoothing: antialiased;
-}
 
+.btn-cus{
+	padding: 3px 10px;
+
+}
 .panel-body{
 	color: #1fa67a;
+	padding-bottom: 5px; 
 }
 .group:after, .group:before{
   content: ".";

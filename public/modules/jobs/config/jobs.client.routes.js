@@ -26,11 +26,9 @@ angular.module('jobs').config(['$stateProvider',
 			templateUrl: 'modules/jobs/views/edit-job.client.view.html'
 		}).
 		state('view_applicant', {
-			url: 'jobs/:jobId/employer/view_details',
+			url: '/jobs/:jobId/:applicantId/view_details',
 			templateUrl: 'modules/jobs/views/applicants_view-jobs.client.view.html'
 		});
 	}
 ]);
 
-
-// db.name.find()
