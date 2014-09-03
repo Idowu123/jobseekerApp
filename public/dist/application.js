@@ -349,12 +349,11 @@ angular.module('jobs').config([
       url: '/jobs/:jobId/edit',
       templateUrl: 'modules/jobs/views/edit-job.client.view.html'
     }).state('view_applicant', {
-      url: 'jobs/:jobId/employer/view_details',
+      url: '/jobs/:jobId/:applicantId/view_details',
       templateUrl: 'modules/jobs/views/applicants_view-jobs.client.view.html'
     });
   }
-]);  // db.name.find()
-'use strict';
+]);'use strict';
 // Jobs controller
 angular.module('jobs').controller('JobsController', [
   '$scope',
@@ -421,23 +420,10 @@ angular.module('jobs').controller('JobsController', [
         console.log('in call back function');
         $scope.success = true;
         console.log('success');
-        $location.path('jobs/' + $scope.job._id + '/application_complete');
+        $location.path('/jobs/' + $scope.job._id + '/application_complete');
       }).error(function (response) {
         $scope.error = response.message;
-      });  // $http({method: 'GET', url: url}).
-           //     success(function(data, status, headers, config) {
-           //     	console.log('apply_location');
-           //       $location.path('jobs/' + $scope.job._id + '/application_complete');
-           //     }).
-           //     error(function(data, status, headers, config) {
-           //       console.log('failed to apply!');
-           // });
-    };
-    $scope.applicants = function () {
-      console.log('applicant');
-      var job = $scope.job;
-      $location.path('jobs/' + $scope.job._id + '/view_details');
-      console.log('done');
+      });
     };
     // Find a list of Jobs
     $scope.find = function () {
