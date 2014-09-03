@@ -344,7 +344,7 @@ angular.module('jobs').config([
       templateUrl: 'modules/jobs/views/view-job.client.view.html'
     }).state('apply_Job', {
       url: '/jobs/:jobId/application_complete',
-      templateUrl: 'modules/jobs/views/apply-job.client.view.html'
+      templateUrl: 'modules/jobs/views/apply-Job.client.view.html'
     }).state('editJob', {
       url: '/jobs/:jobId/edit',
       templateUrl: 'modules/jobs/views/edit-job.client.view.html'

@@ -19,7 +19,7 @@ angular.module('jobs').config(['$stateProvider',
 		}).
 		state('apply_Job', {
 			url: '/jobs/:jobId/application_complete',
-			templateUrl: 'modules/jobs/views/apply-job.client.view.html'
+			templateUrl: 'modules/jobs/views/apply-Job.client.view.html'
 		}).
 		state('editJob', {
 			url: '/jobs/:jobId/edit',
